@@ -1,13 +1,13 @@
 ##################################################### IAM ####################################################################
 # --- Create iam roles & policies ---
 module "iam" {
-  source = "../modules/iam"
+  source = "./modules/iam"
 }
 
 ##################################################### Security Groups #######################################################
 # --- Create security groups ---
 module "security_groups" {
-  source = "../modules/security_groups"
+  source = "./modules/security_groups"
   
   vpc_id            = "${var.vpc_id}"
   vpc_cidr_block    = "${var.vpc_cidr_block}"
@@ -16,7 +16,7 @@ module "security_groups" {
 ##################################################### S3 ####################################################################
 # --- Create s3 objects ---
 module "s3" {
-  source = "../modules/s3"
+  source = "./modules/s3"
   
   bucket_names                                  = "${var.bucket_names}"
   bucket_name                                   = "${var.bucket_name}"
@@ -27,7 +27,7 @@ module "s3" {
 ##################################################### SQS ####################################################################
 # --- Create sqs objects ---
 module "sqs" {
-  source = "../modules/sqs"
+  source = "./modules/sqs"
   
   chris_test_s3_event_notification_queue_name   = "${var.sqs_queue_name}"
   chris_test_s3_event_notification_queue_2_name = "${var.sqs_queue_2_name}"
@@ -37,7 +37,7 @@ module "sqs" {
 ##################################################### SNS ####################################################################
 # --- Create sns objects ---
 module "sns" {
-  source = "../modules/sns"
+  source = "./modules/sns"
   
   sns_topic_name = "${var.sns_topic_name}"
 }
@@ -45,7 +45,7 @@ module "sns" {
 ##################################################### Dynamo DB ##############################################################
 # --- Create dynamo objects ---
 module "dynamo" {
-  source = "../modules/dynamo"
+  source = "./modules/dynamo"
   
   
   dynamodb_name = "${var.dynamodb_name}"
@@ -54,7 +54,7 @@ module "dynamo" {
 ##################################################### Lambda #################################################################
 # --- Create dynamo objects ---
 module "lambda" {
-  source = "../modules/lambda"
+  source = "./modules/lambda"
   
   
 }
