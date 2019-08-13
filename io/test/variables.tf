@@ -59,3 +59,21 @@ variable "dynamodb_name" {
   type    = "string"
   default = "chris_ijames_test_dynamodb_table"
 }
+
+##################################################### Cloudformation #########################################################
+variable "cft_stack_name" {
+  description = "Name for the cft stack"
+  type    = "string"
+  default = "chris_test_stack_from_terraform"
+}
+
+variable "chris_test_topic_from_cft" {
+  description = "Name for the sns topic created by the stack"
+  type    = "string"
+  default = "chris_test_topic_from_terraform"
+}
+
+variable "chris_account_list_from_cft" {
+  description = "Name for the sns topic created by the stack"
+  default = "045627890776"
+}

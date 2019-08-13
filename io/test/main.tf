@@ -47,7 +47,6 @@ module "sns" {
 module "dynamo" {
   source = "./modules/dynamo"
   
-  
   dynamodb_name = "${var.dynamodb_name}"
 }
 
@@ -55,44 +54,20 @@ module "dynamo" {
 # --- Create dynamo objects ---
 module "lambda" {
   source = "./modules/lambda"
+}
+
+##################################################### Cloudformation #########################################################
+# --- Create cft objects ---
+module "cloudformation" {
+  source = "./modules/cloudformation"
   
-  
+  cft_stack_name = "${var.cft_stack_name}"
+  chris_test_topic_from_cft = "${var.chris_test_topic_from_cft}"
+  chris_account_list_from_cft = "${var.chris_account_list_from_cft}"
 }
 
 
+
+/*
 # terraform import aws_cloudformation_stack.chris_test_stack chris_test_stack
-
-/*
-
-data "aws_cloudformation_stack" "example" {
-  name = "chris_test_stack"
-}
-*/
-
-
-
-/*
-resource "aws_s3_bucket_policy" "s3_bucket_policy" {
-  bucket = "${aws_s3_bucket.my_test_bucket.id}"
-
-  policy = <<POLICY
-{
-  "Version": "2012_10_17",
-  "Id": "MYBUCKETPOLICY",
-  "Statement": [
-    {
-      "Sid": "IPAllow",
-      "Effect": "Deny",
-      "Principal": "*",
-      "Action": "s3:*",
-      "Resource": "arn:aws:s3:::my_tf_test_bucket/*",
-      "Condition": {
-         "IpAddress": {"aws:SourceIp": "8.8.8.8/32"}
-      }
-    }
-  ]
-}
-POLICY
-
-}
 */

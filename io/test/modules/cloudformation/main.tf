@@ -1,9 +1,9 @@
 resource "aws_cloudformation_stack" "chris_test_stack" {
-  name = "chris-test-topic-from-terraform"
+  name = "${var.cft_stack_name}"
   
   parameters = {
-    TopicName = "chris_test_topic_from_terraform"
-    AccountList = "045627890776"
+    TopicName = "${var.chris_test_topic_from_cft}"
+    AccountList = "${var.chris_account_list_from_cft}"
   }
   
   
