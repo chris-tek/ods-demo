@@ -20,3 +20,8 @@ variable "ods_sre_s3_event_notification_queue_2_arn" {
   type    = "string"
   default = ""
 }
+
+variable "global_tags"{
+  description = "List of global tags"
+  type        = map(string)
+}

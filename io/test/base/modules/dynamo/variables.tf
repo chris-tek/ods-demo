@@ -3,3 +3,8 @@ variable "dynamodb_name" {
   type    = "string"
   default = ""
 }
+
+variable "global_tags"{
+  description = "List of global tags"
+  type        = map(string)
+}

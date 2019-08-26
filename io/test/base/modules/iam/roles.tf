@@ -18,13 +18,7 @@ resource "aws_iam_role" "test_role" {
           }
       EOF
       
-  tags = {
-    Source = "Terraform"
-    Name   = "ods_sre_test_terraform"
-    Owner  = "ods-sre"
-    POC    = "ods-sre"
-    System = "ods-sre"
-  }
+  tags = var.global_tags
 }
 
 

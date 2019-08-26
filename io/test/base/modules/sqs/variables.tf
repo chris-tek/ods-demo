@@ -15,3 +15,8 @@ variable "aws_s3_bucket_my_test_bucket_arn" {
   type    = "string"
   default = ""
 }
+
+variable "global_tags"{
+  description = "List of global tags"
+  type        = map(string)
+}

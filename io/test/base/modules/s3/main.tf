@@ -6,30 +6,24 @@ resource "aws_s3_bucket" "create_s3_buckets" {
   bucket = each.value
   acl    = "private"
 
-  tags = {
-    Source = "Terraform"
-    Name   = "ods_sre_test_bucket_${each.value}"
-    Owner  = "ods-sre"
-    POC    = "ods-sre"
-    System = "ods-sre"
-  }
+  tags = var.global_tags
 
   versioning {
     enabled = false
   }
 }
 
+locals {
+  standard_tags = {
+    Component   = "user-service"
+    Environment = "production"
+  }
+}
+
 resource "aws_s3_bucket" "my_test_bucket" {
   bucket = "${var.bucket_name}"
   acl    = "private"
-  
-  tags = {
-    Source = "Terraform"
-    Name   = "ods_sre_test_terraform"
-    Owner  = "ods-sre"
-    POC    = "ods-sre"
-    System = "ods-sre"
-  }
+  tags = var.global_tags
   
   versioning {
     enabled = false
@@ -39,14 +33,7 @@ resource "aws_s3_bucket" "my_test_bucket" {
 resource "aws_s3_bucket" "my_test_bucket2" {
   bucket = "${var.bucket_name}"
   acl    = "private"
-  
-  tags = {
-    Source = "Terraform"
-    Name   = "ods_sre_test_terraform"
-    Owner  = "ods-sre"
-    POC    = "ods-sre"
-    System = "ods-sre"
-  }
+  tags = var.global_tags
   
   versioning {
     enabled = false

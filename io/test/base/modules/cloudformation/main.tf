@@ -42,10 +42,5 @@ resource "aws_cloudformation_stack" "ods_sre_stack" {
                           - !Ref snstopicforall
                     STACK
   
-  tags = {
-		Name = "ods_sre_test_terraform"
-		Owner = "ods-sre"
-		POC = "ods-sre"
-		System = "ods-sre"
-	}
+  tags = var.global_tags
 }

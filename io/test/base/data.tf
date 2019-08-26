@@ -10,7 +10,7 @@ data "aws_subnet_ids" "private" {
 # --- get the AMI ID ---
 data "aws_ami" "ami" {
   most_recent = true
-  owners = "${var.owner_id}"
+  owners      = "${var.owner_id}"
 
   filter {
     name   = "name"
